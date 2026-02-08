@@ -16,6 +16,7 @@ cargo build --release
 
 # Run the sorter
 ./target/release/afs --path ~/Downloads 
+```
 
 **Current Version:** 0.1.3
 * Fixed issue to ensure folders are created within the specified directory.
