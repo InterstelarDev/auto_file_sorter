@@ -8,13 +8,11 @@ A simple Rust CLI tool that sorts folders by extension.
 
 ## Installation:
 ```bash
-# Clone the repository
+
 git clone https://github.com/InterstelarDev/auto_file_sorter.git
 
-# Build the project
 cargo build --release
 
-# Run the sorter
 ./target/release/afs --path ~/Downloads 
 ```
 
