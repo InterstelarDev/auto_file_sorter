@@ -43,8 +43,8 @@ fn main() {
                     "sh" | "bat" | "exe" | "msi" => "Executables",
                     _ => "Others", 
 };
-
-                fs::create_dir_all(folder).expect("Error, Failed to create folder");
+                let folder_path = Path::new(target_dir).join(folder);
+                fs::create_dir_all(&folder_path).expect("Error, Failed to create folder");
 
                 let file_name = path.file_name().expect("Error, Could not get filename");
                 let file_name_str = file_name.to_str().unwrap_or("");
@@ -52,7 +52,7 @@ fn main() {
                 if file_name_str.starts_with('.') || file_name_str == "Cargo.toml" || file_name_str == "afs" {
                     continue; 
                 }
-                let dest_path = Path::new(folder).join(file_name);
+                let dest_path = folder_path .join(file_name);
                 
                 rename(&path, dest_path).expect("Error, Failed to move file")
             }
